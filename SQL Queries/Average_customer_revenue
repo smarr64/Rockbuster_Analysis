@@ -1,0 +1,9 @@
+--Average revenue generated from customers
+
+SELECT customer.customer_id,					
+SUM (amount),					
+AVG (amount)					
+FROM customer					
+JOIN rental ON customer.customer_id = rental.customer_id					
+JOIN payment ON rental.rental_id = payment.rental_id					
+GROUP BY customer.customer_id					
