@@ -1,0 +1,41 @@
+--Top 5 Customers in top 10 Cities
+
+WITH top_5_customers_cte				
+     AS				
+(SELECT B.customer_id				
+               B.first_name				
+               B.last_name				
+               SUM(amount)				
+               D.city				
+              E.country				
+FROM payment A				
+JOIN customer B ON B.customer_id = A.customer_id				
+JOIN address C ON B.address_id = C.address_id				
+JOIN city D ON C.city_id = D.city_id				
+JOIN country E ON D. country_id = E.country_id				
+WHERE city IN ('Aurora',				
+                           'Acua',	 'Acua',			
+                           'Citrus Heights	 'Citrus Heights', 			
+	 'Iwaki',			
+	 'Ambattur',			
+	 'Shanwel',			
+	 'So Leopoldo',			
+	 'Teboksary',			
+	 'Tianjin',			
+	 'Cianjur')			
+GROUP BY B.customer_id, B.first_name, B.last_name, D.city, E.country				
+ORDER BY SUM(amount) DESC				
+LIMIT 5				
+				
+SELECT country.country				
+COUNT (DISTINCT customer.customer_id),				
+COUNT (DISTINCT top_5_customers_cte.customer_id) AS top_customer_count				
+FROM country				
+INNER JOIN city ON country.country_id = city.country_id				
+INNER JOIN city ON country.country_id = city.country_id				
+INNER JOIN address ON city.city_id = address.city_id				
+INNER JOIN customer ON customer.address_id = address.address_id				
+LEFT JOIN top_5_customers_cte ON country.country = top_5_customers_cte.country				
+GROUP BY country.country				
+ORDER BY top_customer_count DESC				
+LIMIT 5				
