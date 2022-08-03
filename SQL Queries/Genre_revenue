@@ -1,0 +1,12 @@
+--Total revenue from each genre
+
+SELECT category.name,		
+SUM(amount),		
+COUNT(film_category.film_id)		
+FROM category		
+JOIN film_category ON film_category.category_id = category.category_id		
+JOIN inventory ON inventory.film_id = film_category.film_id		
+JOIN rental ON inventory.inventory_id = rental.inventory_id		
+JOIN payment ON rental.rental_id = payment.rental_id		
+GROUP BY name		
+ORDER BY SUM(amount) DESC		
