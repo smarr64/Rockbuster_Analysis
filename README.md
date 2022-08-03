@@ -27,7 +27,7 @@ Rockbuster uses a relational database with the following tables:
 - Country
 
 ## Deliverables
-This project produced three deliverable items that are included in this repository:
+This project produced several documents that are included in this repository:
 - A Data Dictionary with an ERD and guide to all of the tables
-- An Excel sheet with all of the SQL queeries performed and their outputs
+- A folder with the specific SQL queries used to find information
 - A PowerPOint presentation of the Tableau visualizations produced
