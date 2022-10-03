@@ -1,4 +1,4 @@
-# Rockbuster Stealth Analysis
+# Rockbuster Sales Analysis
 This is an analysis of a fictional movie rental company. The purpose of this analysis is to demonstrate analytical skills in a business context using SQL and Tableau.
 
 ## Background and Objectives
